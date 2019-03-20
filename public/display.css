@@ -1,0 +1,179 @@
+body{
+    margin:0 auto;
+    background-color:rgba(39, 50, 72, 0.45);
+}
+.login-box{
+    padding:78px 0;
+    text-align: center;
+    width: 100%;
+}
+.login-logo{
+    font-weight: 700;
+    color: #444;
+    font-size: 30px;
+}
+.login-body{
+    background-color:white;
+    padding: 30px 0 45px;
+    margin: 2% 36%;
+    border-radius: 2px;
+}
+.input{
+    margin-bottom: 10px;
+    padding: 5px 10px 10px 10px;
+    font-size: 15px;
+    outline: none;
+}
+#button{
+    padding: 10px 30px;
+    background: #3c8dbc;
+    margin-top: 5px;
+    border: 0;
+    margin-bottom: 40px;
+}
+#button:hover{
+    background:rgb(24, 126, 185);
+}
+.header{
+    width: 100%;
+    background-color:rgba(36, 41, 46, 0.8);
+    height: 64px;
+}
+.hleft{
+    width: 50%;
+    margin:20px 0;
+    float:left;
+}
+.hright{
+    width:50%;
+    float:right;
+    text-align: right;
+    margin:20px 0;
+}
+.container{
+    width:1000px;
+    margin:0 auto;
+}
+.hright a{
+    text-decoration: none;
+    margin-left:10px;
+}
+.hright span{
+    color:white;
+}
+.hright span:hover{
+    color:rgba(255, 255, 255, 0.54);
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    padding: 12px 16px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown span{
+    color:white;
+}
+.dropdown span:hover{
+    color:rgba(255, 255, 255, 0.42);
+}
+.link-chat{
+    display:block;
+    text-decoration: none;
+    margin:10px 0;
+    color:black;
+}
+.link-chat:hover{
+    color:rgb(154, 13, 13);
+}
+#messages {
+    background: white;
+    height: 500px; 
+    list-style-type: none; 
+    margin: 70px auto 5px; 
+    padding: 0; 
+    border:1px solid black;
+    overflow-y: auto;}
+#messages li {
+    padding: 10px 10px;
+}
+#messages li:nth-child(odd) {
+    background: #eee;
+}
+.main{
+    width: 60%;
+    margin:0 auto;
+}
+#m{
+    padding: 7px 25px 15px 10px;
+    font-size: 20px;
+    width: 80%;
+    outline:none;
+}
+.send{
+    width: 14%;
+    padding: 16px 0;
+    background: #3c8dbc;
+    margin-top: 5px;
+    border: 0;
+    margin-bottom: 40px;
+}
+.send:hover{
+    background:rgb(24, 126, 185);
+}
+#wc-left{
+}
+#wc-right{
+    float:right;
+}
+.welcome{
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+    background: rgba(62, 56, 76, 0.38) !important
+}
+#register{
+    margin-top: 36px;
+}
+#user:hover{
+    color:white;
+}
+#friend{
+    padding: 5px 5px 5px 10px;
+}
+#group{
+    padding: 5px 5px 5px 10px;
+}
+#join-group{
+    padding: 8px 16px;
+    background: rgba(36, 41, 46, 0.8);
+    margin-top: 5px;
+    color: white;
+    border-radius: 7px;
+    border: 0;
+    font-size: 14px;
+}
+#join-group:hover{
+    background: rgba(36, 41, 46, 0.33);
+}
+#btn-chat{
+    padding: 8px 16px;
+    background: rgba(36, 41, 46, 0.8);
+    margin-top: 5px;
+    color: white;
+    border-radius: 7px;
+    border: 0;
+    font-size: 14px;
+}
+#btn-chat:hover{
+    background: rgba(36, 41, 46, 0.33);
+}

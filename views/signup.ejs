@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Đăng ký</title>
+    <link rel ="stylesheet" href="/display.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="login-box">
+            <div class="login-logo">Đăng ký</div>
+            <div class="login-body">
+                <p>Đăng ký để chat với bạn bè của bạn</p>
+                <%if(-err!=''){ %>
+                    <p style="color:red">Tài khoản đã có người sử dụng,vui lòng chọn tài khoản khác</p>                
+                <%}%>
+                <form id="register" method="POST" action="/signup">
+                    <input class="input" size="15" name="username" autocomplete="off" type="text" placeholder="Tên tài khoản">
+                    <br>
+                    <input class="input" size="15" name ="password" type="password" placeholder="Mật khẩu">
+                    <br>
+                    <input class="input" size="15" type="password" placeholder="Nhập lại mật khẩu">
+                    <br>
+                    <button type="submit" id="button">Đăng ký</button>
+                </form>
+                <span>Đã có tài khoản? </span><a href="/login">Đăng nhập</a><br><br>
+            </div>
+        </div>
+    </div>
+</body>

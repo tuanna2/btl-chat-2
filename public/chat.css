@@ -1,6 +1,5 @@
 html,
 body,
-div,
 span {
   height: 100%;
   width: 100%;
@@ -9,10 +8,15 @@ span {
   margin: 0;
   box-sizing: border-box;
 }
-
-body {
-  background: url("http://shurl.esy.es/y") no-repeat fixed center;
-  background-size: cover;
+div{
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: antiquewhite;
 }
 
 .fa-2x {
@@ -80,8 +84,6 @@ body {
 
 .heading-avatar {
   padding: 0;
-  cursor: pointer;
-
 }
 
 .heading-avatar-icon img {
@@ -92,7 +94,6 @@ body {
 
 .heading-name {
   padding: 0 !important;
-  cursor: pointer;
 }
 
 .heading-name-meta {
@@ -314,7 +315,6 @@ body {
 .message {
   padding: 0 !important;
   margin: 0 !important;
-  background: url("w.jpg") no-repeat fixed center;
   background-size: cover;
   overflow-y: auto;
   border: 1px solid #f7f7f7;
@@ -346,7 +346,6 @@ body {
 }
 
 .message-main-receiver {
-  /*padding: 10px 20px;*/
   max-width: 60%;
 }
 
@@ -468,4 +467,29 @@ body {
 .online{
   font-size: 30px;
   color: rgb(76, 175, 80);
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  padding: 12px 16px;
+  z-index: 1;
+}
+#trash{
+  color:white;
+}
+#trash:hover{
+  color:#337ab7;
+}
+.admin{
+  color:rgba(255, 0, 0, 0.91);
+}
+.logout{
+  color:white;
 }

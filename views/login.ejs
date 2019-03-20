@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Đăng nhập</title>
+    <link rel ="stylesheet" href="/display.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="login-box">
+            <div class="login-logo">Đăng nhập</div>
+            <div class="login-body">
+                <p>Đăng nhập để chat với bạn bè của bạn</p>
+                <% if(-err!=''){ %>
+                    <p style="color:red">Sai tài khoản hoặc mật khẩu</p>                
+                <%}%>
+                <form method="POST" action="/login" style="margin-top: 36px;">
+                    <input class="input" size="25" name="username" autocomplete="off"  type="text" placeholder="Tài khoản">
+                    <br>
+                    <input class="input" size="25" name="password" type="password" autocomplete="off"  placeholder="Mật khẩu">
+                    <br>
+                    <button type="submit" id="button">Đăng nhập</button>
+                </form>
+                <span>Chưa có tài khoản? </span><a href="/signup">Đăng ký ngay!</a><br><br>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

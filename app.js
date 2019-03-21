@@ -6,6 +6,9 @@ const bodyParser =require('body-parser');
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const socketIO = require('./socket');
+const sslRedirect = require('heroku-ssl-redirect');
+app.use(sslRedirect());
+
 socketIO(io);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -53,6 +56,4 @@ function isLogin(req,res,next){
     res.render('login',{err:''});
 }
 
-http.listen(3000, ()=>{
-    console.log('Server listening on port 3000');
-});
+http.listen(process.env.PORT || 3000);

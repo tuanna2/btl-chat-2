@@ -22,7 +22,10 @@ $(document).ready(()=>{
     })
     $('.sideBar').on('click','.sideBar-body',name=>{
         let click = $(name.currentTarget).attr('id');
-        if(u == click) return false;
+        if(u == click) {
+            setCaretToPos(document.getElementById("msg-value"), 4);
+            return false;
+        }
         if(onChat){
             let r = confirm('Thay đổi người chat sẽ mất tin nhắn và ngắt kết nối chat với người dùng hiện tại. Bạn có muốn tiếp tục ?')
             if(r){
@@ -40,15 +43,15 @@ $(document).ready(()=>{
         $('#'+o).css('background-color','#fff');
         $('#'+n).css('background-color','rgba(96, 125, 139, 0.3)');
         $('#name-fr').html(n);
-        clearChat();
+        clearMsg();
         $('#avt-fr').attr('src','/avatar/avatar6.png');
         setCaretToPos(document.getElementById("msg-value"), 4);
     }
-    function clearChat(){
+    function clearMsg(){
         $('.message-body').remove();
     }
     $('#trash').click(()=>{
-        confirm('Xoá hết tin nhắn hiện tại? ') ? clearChat() : '';        
+        confirm('Xoá hết tin nhắn hiện tại? ') ? clearMsg() : '';
     })
     $('#msg-value').keypress(e => {
         if (e.which == '13') {

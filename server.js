@@ -1,15 +1,23 @@
-const express = require('express');
-const app = express();
-const session = require('express-session');
-const userModel = require('./models/index')
-const bodyParser =require('body-parser');
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-const socketIO = require('./socket');
-const sslRedirect = require('heroku-ssl-redirect');
-app.use(sslRedirect());
+const express = require('express'),
+app = express(),
+httpApp = express(),
+session = require('express-session'),
+userModel = require('./models/index'),
+bodyParser =require('body-parser'),
+http = require('http'),
+https = require('https'),
+fs = require('fs');
 
-socketIO(io);
+const httpServer = http.createServer(httpApp);
+const httpsServer = https.createServer({
+    key: fs.readFileSync('./key.pem'),
+    cert: fs.readFileSync('./cert.pem'),
+    passphrase: 'anhtuan'
+}, app);
+
+const io = require('socket.io')(httpsServer);
+require('./socket')(io);
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -17,11 +25,16 @@ const sessionMiddleWare = session({
     secret: 'abcxuz',
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge:1000*60*60*24*30 } //cookie song 30 ngay
+    cookie: { maxAge:1000*60*60*24*30 } //session song 30 ngay
 })
 io.use((socket,next)=>{
     sessionMiddleWare(socket.request, socket.request.res, next)
-})
+});
+
+httpApp.get("*", (req, res) => {
+    res.redirect("https://" + req.headers.host + req.path);
+});
+
 app.use(sessionMiddleWare);
 app.use(express.static("public"));
 app.set("view engine","ejs"); 
@@ -56,4 +69,8 @@ function isLogin(req,res,next){
     res.render('login',{err:''});
 }
 
-http.listen(process.env.PORT || 3000);
+
+httpServer.listen(process.env.PORT || 80);
+httpsServer.listen(process.env.PORT || 443);
+
+//openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365

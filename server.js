@@ -8,14 +8,14 @@ http = require('http'),
 https = require('https'),
 fs = require('fs');
 
-const httpServer = http.createServer(httpApp);
-const httpsServer = https.createServer({
-    key: fs.readFileSync('./key.pem'),
-    cert: fs.readFileSync('./cert.pem'),
-    passphrase: 'anhtuan'
-}, app);
+const httpServer = http.createServer(app);
+// const httpsServer = https.createServer({
+//     key: fs.readFileSync('./key.pem'),
+//     cert: fs.readFileSync('./cert.pem'),
+//     passphrase: 'anhtuan'
+// }, app);
 
-const io = require('socket.io')(httpsServer);
+const io = require('socket.io')(httpServer);
 require('./socket')(io);
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,9 +31,9 @@ io.use((socket,next)=>{
     sessionMiddleWare(socket.request, socket.request.res, next)
 });
 
-httpApp.get("*", (req, res) => {
-    res.redirect("https://" + req.headers.host + req.path);
-});
+// httpApp.get("*", (req, res) => {
+//     res.redirect("https://" + req.headers.host + req.path);
+// });
 
 app.use(sessionMiddleWare);
 app.use(express.static("public"));
@@ -71,6 +71,6 @@ function isLogin(req,res,next){
 
 
 httpServer.listen(process.env.PORT || 80);
-httpsServer.listen(process.env.PORT || 443);
+// httpsServer.listen(process.env.PORT || 443);
 
 //openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
